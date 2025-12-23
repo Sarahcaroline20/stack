@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+#define SIZE 5
+
+int main() {
+    string stack[SIZE];
+    int top = -1;
+
+    // PUSH operations
+    stack[++top] = "CB101";
+    stack[++top] = "CB102";
+    stack[++top] = "CB103";
+
+    cout << "Circuit boards pushed into stack.\n";
+
+    // POP operation
+    cout << "Popped Circuit Board: " << stack[top--] << endl;
+
+    // DISPLAY remaining stack
+    cout << "Remaining Circuit Boards in Stack:\n";
+    for (int i = top; i >= 0; i--) {
+        cout << stack[i] << endl;
+    }
+
+    return 0;
+}

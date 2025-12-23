@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+#define SIZE 5
+
+int main() {
+    float stack[SIZE];
+    int top = -1;
+    int n;
+
+    cout << "Enter number of signal values: ";
+    cin >> n;
+
+    // PUSH operation
+    if (n > SIZE) {
+        cout << "Stack Overflow! Cannot push more signals.\n";
+        return 0;
+    }
+
+    cout << "Enter voltage readings:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> stack[++top];
+    }
+
+    // POP and display in reverse order
+    cout << "Signals in Reverse Order:\n";
+    while (top != -1) {
+        cout << stack[top--] << " V" << endl;
+    }
+
+    // Check empty condition
+    if (top == -1) {
+        cout << "Stack is Empty.\n";
+    }
+
+    return 0;
+}

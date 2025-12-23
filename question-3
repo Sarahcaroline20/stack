@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+#define SIZE 5
+
+int main() {
+    int stack[SIZE];
+    int top = -1;
+    int choice, value;
+
+    do {
+        cout << "\n1. Push PWM Duty Cycle";
+        cout << "\n2. Pop PWM Duty Cycle";
+        cout << "\n3. Exit";
+        cout << "\nEnter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            if (top == SIZE - 1) {
+                cout << "Stack Overflow! PWM stack is full.\n";
+            } else {
+                cout << "Enter PWM Duty Cycle (%): ";
+                cin >> value;
+                stack[++top] = value;
+                cout << "PWM value pushed.\n";
+            }
+            break;
+
+        case 2:
+            if (top == -1) {
+                cout << "Stack Underflow! No PWM values to pop.\n";
+            } else {
+                cout << "Popped PWM Duty Cycle: " << stack[top--] << "%\n";
+            }
+            break;
+
+        case 3:
+            cout << "Exiting program.\n";
+            break;
+
+        default:
+            cout << "Invalid choice.\n";
+        }
+    } while (choice != 3);
+
+    return 0;
+}
